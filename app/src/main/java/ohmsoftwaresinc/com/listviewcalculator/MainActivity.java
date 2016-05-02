@@ -20,7 +20,7 @@ public class MainActivity extends Activity
     private List<Product> mProductlist;
     GlobalClass gc = new GlobalClass();
     EditText ed_name, ed_price;
-    TextView total;
+   public static TextView total;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,8 +60,14 @@ public class MainActivity extends Activity
 //
 //
 //        }
-
-
     }
+    public TextView getTextView()
+    {
+
+        TextView txtView = (TextView)findViewById(R.id.tv_total);
+        return txtView;
+    }
+
+
 }
 

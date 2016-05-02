@@ -1,5 +1,6 @@
 package ohmsoftwaresinc.com.listviewcalculator;
 
+import android.app.Activity;
 import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +17,13 @@ import java.util.List;
 public class ProuctListAdapter extends BaseAdapter {
     private Context mcontext;
     private List<Product> mproductlist;
+    GlobalClass gc1 = new GlobalClass();
+    MainActivity ma = new MainActivity();
+
+
+
+
+
 
     public ProuctListAdapter(Context mcontext, List<Product> mproductlist)
     {
@@ -44,29 +52,37 @@ public class ProuctListAdapter extends BaseAdapter {
         TextView tv_name = (TextView) v.findViewById(R.id.tv_name);
         final TextView tv_price = (TextView) v.findViewById(R.id.tv_price);
         Button delete = (Button) v.findViewById(R.id.delete);
+        tv_name.setText(mproductlist.get(position).getItem_name());
+        tv_price.setText(String.valueOf(mproductlist.get(position).getItem_price()));
 
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                GlobalClass gc = new GlobalClass();
-                mproductlist.remove(position);
-                Toast.makeText(mcontext,"Old Sum is :-"+gc.sum,Toast.LENGTH_SHORT).show();
-                Toast.makeText(mcontext,"Delete item is :- "+tv_price.getText().toString(),Toast.LENGTH_SHORT).show();
 
-                gc.sum = gc.sum - Integer.parseInt(tv_price.getText().toString());
-                Toast.makeText(mcontext,"New Sum is :- "+gc.sum,Toast.LENGTH_SHORT).show();
+                mproductlist.remove(position);
+              //  Toast.makeText(mcontext,"Old Sum is :-"+gc1.sum,Toast.LENGTH_SHORT).show();
+              //  Toast.makeText(mcontext,"Delete item is :- "+tv_price.getText().toString(),Toast.LENGTH_SHORT).show();
+
+                gc1.sum = gc1.sum - Integer.parseInt(tv_price.getText().toString());
+             //   Toast.makeText(mcontext,"New Sum is :- "+gc1.sum,Toast.LENGTH_SHORT).show();
+
+        //        tv_total.setText(""+gc1.sum);
 
 
                 notifyDataSetChanged();
+                //
+                // Update(gc1.sum);
+              // gc1.dosomething(gc1.sum);
+                MainActivity.total.setText(""+gc1.sum);
             }
         });
 
-        tv_name.setText(mproductlist.get(position).getItem_name());
-        tv_price.setText(String.valueOf(mproductlist.get(position).getItem_price()));
+
 
 
         return v;
     }
+
 
 
 }
