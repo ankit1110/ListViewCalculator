@@ -23,8 +23,7 @@ public class MainActivity extends Activity
     TextView total;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState)
-    {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         listView = (ListView) findViewById(R.id.lv);
@@ -37,36 +36,32 @@ public class MainActivity extends Activity
         adapter = new ProuctListAdapter(getApplicationContext(), mProductlist);
         listView.setAdapter(adapter);
 
-
     }
 
     public void btn_click(View v) {
 
 
-   //     mProductlist.add(new Product(ed_name.getText().toString(), Integer.parseInt(ed_price.getText().toString())));
-    //    adapter = new ProuctListAdapter(getApplicationContext(), mProductlist);
-     //   listView.setAdapter(adapter);
-
         mProductlist.add(new Product(ed_name.getText().toString(), Integer.parseInt(ed_price.getText().toString())));
         adapter.notifyDataSetChanged();
 
         //    gc.sum = sumMyIntValues(listView);
-        //gc.sum = gc.sum + Integer.parseInt(ed_price.getText().toString());
+        gc.sum = gc.sum + Integer.parseInt(ed_price.getText().toString());
+
+        total.setText(gc.sum + "");
 
 
-         Toast.makeText(getApplicationContext(),""+listView.getCount(),Toast.LENGTH_LONG).show();
-         for (int i = 0; i <= listView.getCount(); i++) {
-            v = listView.getChildAt(i);
-            TextView myView = (TextView) v.findViewById(R.id.tv_price);
-            gc.sum = gc.sum + Integer.parseInt(myView.getText().toString());
-
-            total.setText("" + gc.sum);
-
-
-        }
+//        Toast.makeText(getApplicationContext(), "" + listView.getCount(), Toast.LENGTH_LONG).show();
+//        for (int i = 0; i <= listView.getCount(); i++) {
+//            v = listView.getChildAt(i);
+//            TextView myView = (TextView) v.findViewById(R.id.tv_price);
+//            gc.sum = gc.sum + Integer.parseInt(myView.getText().toString());
+//
+//            total.setText("" + gc.sum);
+//
+//
+//        }
 
 
     }
 }
-
 

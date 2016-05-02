@@ -39,14 +39,19 @@ public class ProuctListAdapter extends BaseAdapter {
     }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent)
-    {
-        View v = View.inflate(mcontext,R.layout.row,null);
-        TextView tv_name = (TextView)v.findViewById(R.id.tv_name);
-        final TextView tv_price = (TextView)v.findViewById(R.id.tv_price);
-       // Button delete = (Button)v.findViewById(R.id.delete);
-       // Button delete = (Button)v.findViewById(R.id.delete);
-       // Button delete = (Button)v.findViewById(R.id.delete);
+    public View getView(final int position, View convertView, ViewGroup parent) {
+        View v = View.inflate(mcontext, R.layout.row, null);
+        TextView tv_name = (TextView) v.findViewById(R.id.tv_name);
+        final TextView tv_price = (TextView) v.findViewById(R.id.tv_price);
+        Button delete = (Button) v.findViewById(R.id.delete);
+
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mproductlist.remove(position);
+                notifyDataSetChanged();
+            }
+        });
 
         tv_name.setText(mproductlist.get(position).getItem_name());
         tv_price.setText(String.valueOf(mproductlist.get(position).getItem_price()));
