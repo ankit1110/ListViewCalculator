@@ -48,7 +48,15 @@ public class ProuctListAdapter extends BaseAdapter {
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                GlobalClass gc = new GlobalClass();
                 mproductlist.remove(position);
+                Toast.makeText(mcontext,"Old Sum is :-"+gc.sum,Toast.LENGTH_SHORT).show();
+                Toast.makeText(mcontext,"Delete item is :- "+tv_price.getText().toString(),Toast.LENGTH_SHORT).show();
+
+                gc.sum = gc.sum - Integer.parseInt(tv_price.getText().toString());
+                Toast.makeText(mcontext,"New Sum is :- "+gc.sum,Toast.LENGTH_SHORT).show();
+
+
                 notifyDataSetChanged();
             }
         });
