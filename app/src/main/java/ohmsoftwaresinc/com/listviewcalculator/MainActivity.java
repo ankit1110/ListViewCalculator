@@ -34,15 +34,21 @@ public class MainActivity extends Activity
 
 
         mProductlist = new ArrayList<>();
+        adapter = new ProuctListAdapter(getApplicationContext(), mProductlist);
+        listView.setAdapter(adapter);
+
 
     }
 
     public void btn_click(View v) {
 
 
+   //     mProductlist.add(new Product(ed_name.getText().toString(), Integer.parseInt(ed_price.getText().toString())));
+    //    adapter = new ProuctListAdapter(getApplicationContext(), mProductlist);
+     //   listView.setAdapter(adapter);
+
         mProductlist.add(new Product(ed_name.getText().toString(), Integer.parseInt(ed_price.getText().toString())));
-        adapter = new ProuctListAdapter(getApplicationContext(), mProductlist);
-        listView.setAdapter(adapter);
+        adapter.notifyDataSetChanged();
 
         //    gc.sum = sumMyIntValues(listView);
         //gc.sum = gc.sum + Integer.parseInt(ed_price.getText().toString());
