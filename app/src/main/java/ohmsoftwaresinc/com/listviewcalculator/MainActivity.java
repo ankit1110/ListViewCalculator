@@ -44,29 +44,15 @@ public class MainActivity extends Activity
         mProductlist.add(new Product(ed_name.getText().toString(), Integer.parseInt(ed_price.getText().toString())));
         adapter.notifyDataSetChanged();
 
-        //    gc.sum = sumMyIntValues(listView);
+
         gc.sum = gc.sum + Integer.parseInt(ed_price.getText().toString());
 
         total.setText(gc.sum + "");
 
 
-//        Toast.makeText(getApplicationContext(), "" + listView.getCount(), Toast.LENGTH_LONG).show();
-//        for (int i = 0; i <= listView.getCount(); i++) {
-//            v = listView.getChildAt(i);
-//            TextView myView = (TextView) v.findViewById(R.id.tv_price);
-//            gc.sum = gc.sum + Integer.parseInt(myView.getText().toString());
-//
-//            total.setText("" + gc.sum);
-//
-//
-//        }
-    }
-    public TextView getTextView()
-    {
 
-        TextView txtView = (TextView)findViewById(R.id.tv_total);
-        return txtView;
     }
+
 
 
 }

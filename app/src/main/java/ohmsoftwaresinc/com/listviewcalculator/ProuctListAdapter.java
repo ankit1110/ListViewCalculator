@@ -18,14 +18,7 @@ public class ProuctListAdapter extends BaseAdapter {
     private Context mcontext;
     private List<Product> mproductlist;
     GlobalClass gc1 = new GlobalClass();
-    MainActivity ma = new MainActivity();
-
-
-
-
-
-
-    public ProuctListAdapter(Context mcontext, List<Product> mproductlist)
+public ProuctListAdapter(Context mcontext, List<Product> mproductlist)
     {
         this.mcontext = mcontext;
         this.mproductlist = mproductlist;
@@ -60,27 +53,12 @@ public class ProuctListAdapter extends BaseAdapter {
             public void onClick(View view) {
 
                 mproductlist.remove(position);
-              //  Toast.makeText(mcontext,"Old Sum is :-"+gc1.sum,Toast.LENGTH_SHORT).show();
-              //  Toast.makeText(mcontext,"Delete item is :- "+tv_price.getText().toString(),Toast.LENGTH_SHORT).show();
-
                 gc1.sum = gc1.sum - Integer.parseInt(tv_price.getText().toString());
-             //   Toast.makeText(mcontext,"New Sum is :- "+gc1.sum,Toast.LENGTH_SHORT).show();
-
-        //        tv_total.setText(""+gc1.sum);
-
-
-                notifyDataSetChanged();
-                //
-                // Update(gc1.sum);
-              // gc1.dosomething(gc1.sum);
-                MainActivity.total.setText(""+gc1.sum);
+             notifyDataSetChanged();
+   MainActivity.total.setText(""+gc1.sum);
             }
         });
-
-
-
-
-        return v;
+       return v;
     }
 
 
